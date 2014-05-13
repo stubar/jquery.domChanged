@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=680, user-scalable=no" id="vp">
+    <style type="text/css">
+        #target {width:100px;height :100px; border:1px solid black}
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dom Changed</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/domChanged.js"></script>
+</head>
+<body>
+<div id="target">
+    I'm going to change
+</div>
+<a href="#" onclick="changer()">change</a><br>
+<a href="#" onclick="stop()">stop</a>
+<script type="text/javascript">
+    function changer(){
+        $("#target").html("<div>new</div>");
+      //  $("#target").append("<div>new</div>");
+
+    }
+    $("#target").on("domChanged",function(){
+        console.log("It changed, notified by event")
+    })
+    $("#target").domChanged(function(){
+        console.log("callback passed as parameter")
+
+    });
+
+    function stop(){
+        $("#target").data("domChanged").stop();
+    }
+</script>
+</body>
+</html>
+
