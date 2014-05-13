@@ -7,12 +7,12 @@ Webkit & Gecko uses MutationObserver and ie uses polling.
 
 Settings and Defaults
 =====================
-
+```
 pollTime : 100,//for ie
 callback:false,
 eventName:"domChanged",//name of the event that you must bind to
 timeout:0// this is to stop ie polling after a certain time, default is 0 which means never stop
-
+```
 How to use
 ==========
 
